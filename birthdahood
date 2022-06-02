@@ -828,7 +828,7 @@ for i,v in pairs(game:GetService("Workspace").Ignored.Shop:GetChildren()) do
     end)
 end
 
-asad:Button("Fake Monaco (M)", function()
+asad:Button("Try Hard", function()
     local Animate = game.Players.LocalPlayer.Character.Animate
     Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=782841498"
     Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=782845736"
