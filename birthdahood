@@ -1,1 +1,858 @@
-local gk = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")() local tg = gk:Window("\66\105\114\116\104\72\117\98\32\86\50\32\40\68\97\72\111\111\100\41") local _t = tg:Server("\66\72\117\98\86\50", "") local d_t = _t:Channel("\77\97\105\110") d_t:Button("\67\104\97\116\32\76\111\103\115", function() gk:Notification("\78\111\116\105\102\105\99\97\116\105\111\110", "\67\104\97\116\32\76\111\103\115\32\101\120\101\99\117\116\101\100\33", "\79\107\97\121\33") local md_ = game.Players.LocalPlayer md_.PlayerGui.Chat.Frame.ChatChannelParentFrame.Visible = true md_.PlayerGui.Chat.Frame.ChatBarParentFrame.Position = md_.PlayerGui.Chat.Frame.ChatChannelParentFrame.Position + UDim2.new(UDim.new(),md_.PlayerGui.Chat.Frame.ChatChannelParentFrame.Size.Y) end) d_t:Button("\72\105\100\101\32\78\97\109\101", function() if game.Players.LocalPlayer.Character:FindFirstChild("\73\110\45\103\97\109\101\77\97\115\107") then game.Players.LocalPlayer.Character:FindFirstChild("\73\110\45\103\97\109\101\77\97\115\107"):FindFirstChildWhichIsA("\77\111\100\101\108"):Destroy() game.Players.LocalPlayer.Character:FindFirstChild("\73\110\45\103\97\109\101\77\97\115\107"):FindFirstChild('Handle'):Destroy() end end) d_t:Button("\70\108\121\32\40\88\41", function() gk:Notification("\78\111\116\105\102\105\99\97\116\105\111\110", "\70\108\121\32\77\111\100\101\32\69\120\101\99\117\116\101\100", "\79\107\97\121\33") local c = game.Players.LocalPlayer local md_t = c:GetMouse() localplayer = c if workspace:FindFirstChild("\67\111\114\101") then workspace.Core:Destroy() end local inc = Instance.new("\80\97\114\116") inc.Name = "\67\111\114\101" inc.Size = Vector3.new(0.05, 0.05, 0.05) spawn(function() inc.Parent = workspace local sin = Instance.new("\87\101\108\100", inc) sin.Part0 = inc sin.Part1 = localplayer.Character.LowerTorso sin.C0 = CFrame.new(0, 0, 0) end) workspace:WaitForChild("\67\111\114\101") local rsi = workspace.Core flying = true local er=7.5 local le={sinc=false,d=false,w=false,s=false} local o local ho local function d() local faqh = Instance.new("\66\111\100\121\80\111\115\105\116\105\111\110",rsi) local aq = Instance.new("\66\111\100\121\71\121\114\111",rsi) faqh.Name="\69\80\73\88\80\79\83" faqh.maxForce = Vector3.new(math.huge, math.huge, math.huge) faqh.position = rsi.Position aq.maxTorque = Vector3.new(9e9, 9e9, 9e9) aq.cframe = rsi.CFrame repeat wait() localplayer.Character.Humanoid.PlatformStand=true local faq=aq.cframe - aq.cframe.p + faqh.position if not le.w and not le.s and not le.a and not le.d then er=7.5 end if le.w then faq = faq + workspace.CurrentCamera.CoordinateFrame.lookVector * er er=speed+0 end if le.s then faq = faq - workspace.CurrentCamera.CoordinateFrame.lookVector * er er=speed+0 end if le.d then faq = faq * CFrame.new(er,0,0) er=speed+0 end if le.a then faq = faq * CFrame.new(-er,0,0) er=speed+0 end if er>3.2 then er=7.5 end faqh.position=faq.p if le.w then aq.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(-math.rad(er*0),0,0) elseif le.s then aq.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(math.rad(er*0),0,0) else aq.cframe = workspace.CurrentCamera.CoordinateFrame end until flying == false if aq then aq:Destroy() end if faqh then faqh:Destroy() end flying=false localplayer.Character.Humanoid.PlatformStand=false er=7.5 end o=md_t.KeyDown:connect(function(f) if not rsi or not rsi.Parent then flying=false o:disconnect() ho:disconnect() return end if f=="\119" then le.w=true elseif f=="\115" then le.s=true elseif f=="\97" then le.a=true elseif f=="\100" then le.d=true elseif f=="\120" then if flying==true then flying=false else flying=true d() end end end) ho=md_t.KeyUp:connect(function(f) if f=="\119" then le.w=false elseif f=="\115" then le.s=false elseif f=="\97" then le.a=false elseif f=="\100" then le.d=false end end) d()    end) local bf = _t:Channel("\84\111\103\103\108\101\115") bf:Toggle("\78\111\67\108\105\112",false, function(b) loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\76\101\103\111\72\97\99\107\101\114\49\51\51\55\47\108\101\103\111\104\97\99\107\115\47\109\97\105\110\47\80\104\121\115\105\99\115\83\101\114\118\105\99\101\79\110\67\108\105\101\110\116\46\108\117\97"))() setfflag("\72\117\109\97\110\111\105\100\80\97\114\97\108\108\101\108\82\101\109\111\118\101\78\111\80\104\121\115\105\99\115", "\70\97\108\115\101") setfflag("\72\117\109\97\110\111\105\100\80\97\114\97\108\108\101\108\82\101\109\111\118\101\78\111\80\104\121\115\105\99\115\78\111\83\105\109\117\108\97\116\101\50", "\70\97\108\115\101") if b == true then game:GetService('RunService'):BindToRenderStep("\99\114\97\115\104", 0 , function() game.Players.LocalPlayer.Character.Humanoid:ChangeState(11) end) elseif b == false then game:GetService('RunService'):UnbindFromRenderStep("\99\114\97\115\104") end end) bf:Toggle("\70\105\115\116\32\82\101\97\99\104",false, function(incm) if incm == true then game:GetService('RunService'):BindToRenderStep("\82\101\97\99\104", 0 , function() local pb, err = pcall(function() if game.Players.LocalPlayer.Character.BodyEffects.Attacking.Value == true then for i,v in pairs(game:GetService('Players'):GetChildren()) do if (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.LeftHand.Position).Magnitude <= 50 then if game.Players.LocalPlayer.Character:FindFirstChildOfClass("\84\111\111\108") then if game.Players.LocalPlayer.Character:FindFirstChildOfClass("\84\111\111\108"):FindFirstChild('Handle') then firetouchinterest(game.Players.LocalPlayer.Character:FindFirstChildOfClass("\84\111\111\108").Handle, v.Character.UpperTorso, 0) else firetouchinterest(game.Players.LocalPlayer.Character['RightHand'], v.Character.UpperTorso, 0) firetouchinterest(game.Players.LocalPlayer.Character['LeftHand'], v.Character.UpperTorso, 0) firetouchinterest(game.Players.LocalPlayer.Character['RightFoot'], v.Character.UpperTorso, 0) firetouchinterest(game.Players.LocalPlayer.Character['LeftFoot'], v.Character.UpperTorso, 0) firetouchinterest(game.Players.LocalPlayer.Character['RightLowerLeg'], v.Character.UpperTorso, 0) firetouchinterest(game.Players.LocalPlayer.Character['LeftLowerLeg'], v.Character.UpperTorso, 0) end end end end end end) end) elseif incm == false then game:GetService('RunService'):UnbindFromRenderStep("\82\101\97\99\104") end end) bf:Toggle("\65\117\116\111\32\83\116\111\109\112",false, function(k) if k == true then game:GetService('RunService'):BindToRenderStep("\65\117\116\111\45\83\116\111\109\112", 0 , function() game:GetService("\82\101\112\108\105\99\97\116\101\100\83\116\111\114\97\103\101").MainEvent:FireServer("\83\116\111\109\112") end) elseif k == false then game:GetService('RunService'):UnbindFromRenderStep("\65\117\116\111\45\83\116\111\109\112") end end) bf:Toggle("\65\110\116\105\32\83\116\111\109\112",false, function(g) if g == true then game:GetService('RunService'):BindToRenderStep("\65\110\116\105\45\83\116\111\109\112", 0 , function() if game.Players.LocalPlayer.Character.Humanoid.Health <= 5 then for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do if v:IsA('MeshPart') or v:IsA('Part') then v:Destroy() end end for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do if v:IsA('Accessory') then v.Handle:Destroy() end end end end) elseif g == false then game:GetService('RunService'):UnbindFromRenderStep("\65\110\116\105\45\83\116\111\109\112") end end) bf:Toggle("\65\110\116\105\32\83\116\111\109\112",false, function(t) if t == true then game:GetService('RunService'):BindToRenderStep("\65\110\116\105\45\83\108\111\119", 0 , function() if game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("\78\111\87\97\108\107\83\112\101\101\100") then game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("\78\111\87\97\108\107\83\112\101\101\100"):Destroy() end if game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("\82\101\100\117\99\101\87\97\108\107") then game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("\82\101\100\117\99\101\87\97\108\107"):Destroy() end if game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("\78\111\74\117\109\112\105\110\103") then game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("\78\111\74\117\109\112\105\110\103"):Destroy() end if game.Players.LocalPlayer.Character.BodyEffects.Reload.Value == true then game.Players.LocalPlayer.Character.BodyEffects.Reload.Value = false end end) elseif t == false then game:GetService('RunService'):UnbindFromRenderStep("\65\110\116\105\45\83\108\111\119") end end) local rsinc = _t:Channel("\65\105\109\108\111\99\107") rsinc:Button("\65\105\109\108\111\99\107", function() gk:Notification("\78\111\116\105\102\105\99\97\116\105\111\110", "\65\105\109\108\111\99\107\32\69\120\101\99\117\116\101\100", "\79\107\97\121\33") _G.KEY = "\113" _G.PART = "\76\111\119\101\114\84\111\114\115\111" _G.PRED = 0.037 _G.Frame = Vector3.new(0,0.53,0) _G.AIR = -0.5 _G.SHIT = 0.1 local gkp = game:GetService "\87\111\114\107\115\112\97\99\101".CurrentCamera local tgk local _tg = false local d_tg = nil local md_t = game.Players.LocalPlayer:GetMouse() local cmd = Instance.new("\80\97\114\116", game.Workspace) local ncm = Instance.new("\70\111\108\100\101\114", game.CoreGui) getgenv().makemarker = function(_, d_, md, cm, nc) local incm = Instance.new("\66\105\108\108\98\111\97\114\100\71\117\105", _) incm.Name = "\80\80" incm.Adornee = d_ incm.Size = UDim2.new(cm, nc, cm, nc) incm.AlwaysOnTop = true local sinc = Instance.new("\70\114\97\109\101", incm) sinc.Size = UDim2.new(4, 0, 4, 0) sinc.BackgroundTransparency = 0.1 sinc.BackgroundColor3 = md local rsin = Instance.new("\85\73\67\111\114\110\101\114", sinc) rsin.CornerRadius = UDim.new(50, 50) return (incm) end local ers = game.Players:GetPlayers() function m(rs) local ler repeat wait() until rs.Character local ol = makemarker(ncm, rs.Character:WaitForChild(_G.PART), Color3.fromRGB(255, 255, 255), 0.0, 0) ol.Name = rs.Name rs.CharacterAdded:connect( function(i) ol.Adornee = i:WaitForChild(_G.PART) end ) local hol = Instance.new("\84\101\120\116\76\97\98\101\108", ol) hol.BackgroundTransparency = 1 hol.Position = UDim2.new(0, 0, 0, -50) hol.Size = UDim2.new(0, 100, 0, 100) hol.Font = Enum.Font.SourceSansSemibold hol.TextSize = 14 hol.TextColor3 = Color3.new(1, 1, 1) hol.TextStrokeTransparency = 0 hol.TextYAlignment = Enum.TextYAlignment.Bottom hol.Text = "\78\97\109\101\58\32" .. rs.Name hol.ZIndex = 10 spawn( function() while wait() do if rs.Character then end end end ) end for i = 1, #ers do if ers[i] ~= game.Players.LocalPlayer then m(ers[i]) end end game.Players.PlayerAdded:connect( function(si) m(si) end ) game.Players.PlayerRemoving:Connect( function(rs) ncm[rs.Name]:Destroy() end ) spawn( function() cmd.Anchored = true cmd.CanCollide = false cmd.Size = Vector3.new(0.1, 0.1, 0.1) cmd.Transparency = _G.SHIT makemarker(cmd, cmd, Color3.fromRGB(255, 255, 255), 0.20, 0) end ) md_t.KeyDown:Connect( function(e) if e ~= _G.KEY then return end if _tg then [tgk.Name].Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255) _tg = false hol.TextColor3 = Color3.fromRGB(255, 20, 75) hol.Text = "\45\45\45\45\45\45" else [tgk.Name].Frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0) _tg = true tgk = n() hol.TextColor3 = Color3.fromRGB(12, 255, 0) hol.Text = tgk.Character.Humanoid.DisplayName end end) function n() local qh local aqh = math.huge for i, v in pairs(game.Players:GetPlayers()) do if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("\72\117\109\97\110\111\105\100") and v.Character.Humanoid.Health ~= 0 and v.Character:FindFirstChild(_G.PART) then local faqh = gkp:WorldToViewportPoint(v.Character.PrimaryPart.Position) local bfa = (Vector2.new(faqh.X, faqh.Y) - Vector2.new(md_t.X, md_t.Y)).magnitude if bfa < aqh then qh = v aqh = bfa end end end return qh end game:GetService "\82\117\110\83\101\114\118\105\99\101".Stepped:connect( function() if _tg and tgk.Character and tgk.Character:FindFirstChild(_G.PART) then cmd.CFrame = CFrame.new(tgk.Character[_G.PART].Position + _G.Frame + (tgk.Character[_G.PART].Velocity * d_tg)) else cmd.CFrame = CFrame.new(0, 9999, 0) end end ) local p = getrawmetatable(game) local kpbf = p.__namecall setreadonly(p, false) p.__namecall = newcclosure( function(...) local gkpb = {...} if _tg and getnamecallmethod() == "\70\105\114\101\83\101\114\118\101\114" and gkpb[2] == "\85\112\100\97\116\101\77\111\117\115\101\80\111\115" then gkpb[3] = tgk.Character[_G.PART].Position+ _G.Frame + (tgk.Character[_G.PART].Velocity * d_tg) return kpbf(unpack(gkpb)) end return kpbf(...) end ) game.Players.LocalPlayer.Chatted:Connect( function(a) if a == "\112\114\105\110\116" then print(d_tg) end end ) game.Players.LocalPlayer.Chatted:Connect( function(a) if a == "\67\111\100\101\58\49\48\50\57" then _G.KEY = nil _G.AIR = nil _G.PART = nil _G.PRED = nil hol.Visible = false end end ) game.Players.LocalPlayer.Chatted:Connect( function(a) if a == "\67\111\100\101\58\49\48\51\48" then _G.KEY = "\113" _G.PART = "\85\112\112\101\114\84\111\114\115\111" _G.PRED = 0.037 _G.Frame = Vector3.new(0,0.0,0) _G.AIR = -0.5 _G.SHIT = 1 end end ) game.Players.LocalPlayer.Chatted:Connect( function(a) if a == "\80\43" then _G.PRED = _G.PRED+0.001 end end ) game.Players.LocalPlayer.Chatted:Connect( function(a) if a == "\80\45" then _G.PRED = _G.PRED-0.001 end end ) --[[ while wait() do     local ping = game:GetService("\83\116\97\116\115").Network.ServerStatsItem["\68\97\116\97\32\80\105\110\103"]:GetValueString()     local Value = tostring(ping)     local pingValue = Value:split("\32")     local PingNumber = pingValue[1]          accomidationfactor = PingNumber / 1000 + _G.PRED      if getClosestPlayerToCursor().Character.Humanoid.Jump == true and AimlockTarget.Character.Humanoid.FloorMaterial == Enum.Material.Air then         _G.PART = "\82\105\103\104\116\70\111\111\100"         accomidationfactor = _G.AIR     else         getClosestPlayerToCursor().Character:WaitForChild("\72\117\109\97\110\111\105\100").StateChanged:Connect(function(old,new)             if new == Enum.HumanoidStateType.Freefall then                 _G.PART = "\82\105\103\104\116\70\111\111\100"                 accomidationfactor = _G.AIR             else                 _G.PART = "\85\112\112\101\114\84\111\114\115\111"                 accomidationfactor = PingNumber / 1000 + _G.PRED             end         end)     end end ]] while wait() do local cmd_ = game:GetService("\83\116\97\116\115").Network.ServerStatsItem["\68\97\116\97\32\80\105\110\103"]:GetValueString() local ncmd = tostring(cmd_) local incmd = ncmd:split("\32") local sincm = incmd[1] d_tg = sincm / 1000 + _G.PRED end end) local rsinc = _t:Channel("\79\116\104\101\114\115") rsinc:Button("\65\110\105\109\97\116\105\111\110\32\80\97\99\107", function() gk:Notification("\78\111\116\105\102\105\99\97\116\105\111\110", "\65\110\105\109\97\116\105\111\110\32\80\97\99\107\32\101\120\101\99\117\116\101\100", "\79\107\97\121\33") local ersi = Instance.new('ersi', game:GetService("\87\111\114\107\115\112\97\99\101")) local oler = game:GetService("\80\108\97\121\101\114\115").LocalPlayer.PlayerGui.MainScreenGui.AnimationPack local holer = oler.ScrollingFrame local qho = oler.CloseButton oler.Visible = true local aqhol = Instance.new("\65\110\105\109\97\116\105\111\110", ersi) aqhol.Name = "\76\101\97\110\65\110\105\109\97\116\105\111\110" aqhol.AnimationId = "\114\98\120\97\115\115\101\116\105\100\58\47\47\51\49\53\50\51\55\53\50\52\57" local faqho = game:GetService("\80\108\97\121\101\114\115").LocalPlayer.Character.Humanoid:LoadAnimation(aqhol) local bfaqh = Instance.new("\65\110\105\109\97\116\105\111\110", ersi) bfaqh.Name = "\76\97\121\65\110\105\109\97\116\105\111\110" bfaqh.AnimationId = "\114\98\120\97\115\115\101\116\105\100\58\47\47\51\49\53\50\51\55\56\56\53\50" local pbfa = game:GetService("\80\108\97\121\101\114\115").LocalPlayer.Character.Humanoid:LoadAnimation(bfaqh) local kpbfa = Instance.new("\65\110\105\109\97\116\105\111\110", ersi) kpbfa.Name = "\68\97\110\99\101\49\65\110\105\109\97\116\105\111\110" kpbfa.AnimationId = "\114\98\120\97\115\115\101\116\105\100\58\47\47\51\49\56\57\55\55\51\51\54\56" local gkpbfa = game:GetService("\80\108\97\121\101\114\115").LocalPlayer.Character.Humanoid:LoadAnimation(kpbfa) local tgkpb = Instance.new("\65\110\105\109\97\116\105\111\110", ersi) tgkpb.Name = "\68\97\110\99\101\50\65\110\105\109\97\116\105\111\110" tgkpb.AnimationId = "\114\98\120\97\115\115\101\116\105\100\58\47\47\51\49\56\57\55\55\54\53\52\54" local _tgkp = game:GetService("\80\108\97\121\101\114\115").LocalPlayer.Character.Humanoid:LoadAnimation(tgkpb) local d_tgkp = Instance.new("\65\110\105\109\97\116\105\111\110", ersi) d_tgkp.Name = "\71\114\101\101\116\65\110\105\109\97\116\105\111\110" d_tgkp.AnimationId = "\114\98\120\97\115\115\101\116\105\100\58\47\47\51\49\56\57\55\55\55\55\57\53" local md_tgk = game:GetService("\80\108\97\121\101\114\115").LocalPlayer.Character.Humanoid:LoadAnimation(d_tgkp) local cmd_tg = Instance.new("\65\110\105\109\97\116\105\111\110", ersi) cmd_tg.Name = "\80\114\97\121\105\110\103\65\110\105\109\97\116\105\111\110" cmd_tg.AnimationId = "\114\98\120\97\115\115\101\116\105\100\58\47\47\51\52\56\55\55\49\57\53\48\48" local ncmd_t = game:GetService("\80\108\97\121\101\114\115").LocalPlayer.Character.Humanoid:LoadAnimation(cmd_tg) for i,v in pairs(holer:GetChildren()) do if v.Name == "\84\101\120\116\66\117\116\116\111\110" then if v.Text == "\76\101\97\110" then v.Name = "\76\101\97\110\66\117\116\116\111\110" end end end for i,v in pairs(holer:GetChildren()) do if v.Name == "\84\101\120\116\66\117\116\116\111\110" then if v.Text == "\76\97\121" then v.Name = "\76\97\121\66\117\116\116\111\110" end end end for i,v in pairs(holer:GetChildren()) do if v.Name == "\84\101\120\116\66\117\116\116\111\110" then if v.Text == "\68\97\110\99\101\49" then v.Name = "\68\97\110\99\101\49\66\117\116\116\111\110" end end end for i,v in pairs(holer:GetChildren()) do if v.Name == "\84\101\120\116\66\117\116\116\111\110" then if v.Text == "\68\97\110\99\101\50" then v.Name = "\68\97\110\99\101\50\66\117\116\116\111\110" end end end for i,v in pairs(holer:GetChildren()) do if v.Name == "\84\101\120\116\66\117\116\116\111\110" then if v.Text == "\71\114\101\101\116" then v.Name = "\71\114\101\101\116\66\117\116\116\111\110" end end end for i,v in pairs(holer:GetChildren()) do if v.Name == "\84\101\120\116\66\117\116\116\111\110" then if v.Text == "\80\114\97\121\105\110\103" then v.Name = "\80\114\97\121\105\110\103\66\117\116\116\111\110" end end end function s() pbfa:s() faqho:s() gkpbfa:s() _tgkp:s() md_tgk:s() ncmd_t:s() end local incmd_t = holer.LeanButton local sincmd_ = holer.LayButton local rsincmd = holer.Dance1Button local ersinc = holer.Dance2Button local lers = holer.GreetButton local ole = holer.PrayingButton oler.MouseButton1Click:Connect(function() if holer.Visible == false then holer.Visible = true qho.Visible = true end end) qho.MouseButton1Click:Connect(function() if holer.Visible == true then holer.Visible = false qho.Visible = false end end) incmd_t.MouseButton1Click:Connect(function() s() faqho:Play() end) sincmd_.MouseButton1Click:Connect(function() s() pbfa:Play() end) rsincmd.MouseButton1Click:Connect(function() s() gkpbfa:Play() end) ersinc.MouseButton1Click:Connect(function() s() _tgkp:Play() end) lers.MouseButton1Click:Connect(function() s() md_tgk:Play() end) ole.MouseButton1Click:Connect(function() s() ncmd_t:Play() end) game:GetService("\80\108\97\121\101\114\115").LocalPlayer.Character.Humanoid.Running:Connect(function() s() end) game:GetService("\80\108\97\121\101\114\115").LocalPlayer.Character.Humanoid.Died:Connect(function() s() repeat wait() until game:GetService("\80\108\97\121\101\114\115").LocalPlayer.Character.Humanoid.Health == 100 wait(1) local oler = game:GetService("\80\108\97\121\101\114\115").LocalPlayer.PlayerGui.MainScreenGui.AnimationPack local holer = oler.ScrollingFrame local qho = oler.CloseButton oler.Visible = true local aqhol = Instance.new("\65\110\105\109\97\116\105\111\110", ersi) aqhol.Name = "\76\101\97\110\65\110\105\109\97\116\105\111\110" aqhol.AnimationId = "\114\98\120\97\115\115\101\116\105\100\58\47\47\51\49\53\50\51\55\53\50\52\57" local faqho = game:GetService("\80\108\97\121\101\114\115").LocalPlayer.Character.Humanoid:LoadAnimation(aqhol) local bfaqh = Instance.new("\65\110\105\109\97\116\105\111\110", ersi) bfaqh.Name = "\76\97\121\65\110\105\109\97\116\105\111\110" bfaqh.AnimationId = "\114\98\120\97\115\115\101\116\105\100\58\47\47\51\49\53\50\51\55\56\56\53\50" local pbfa = game:GetService("\80\108\97\121\101\114\115").LocalPlayer.Character.Humanoid:LoadAnimation(bfaqh) local kpbfa = Instance.new("\65\110\105\109\97\116\105\111\110", ersi) kpbfa.Name = "\68\97\110\99\101\49\65\110\105\109\97\116\105\111\110" kpbfa.AnimationId = "\114\98\120\97\115\115\101\116\105\100\58\47\47\51\49\56\57\55\55\51\51\54\56" local gkpbfa = game:GetService("\80\108\97\121\101\114\115").LocalPlayer.Character.Humanoid:LoadAnimation(kpbfa) local tgkpb = Instance.new("\65\110\105\109\97\116\105\111\110", ersi) tgkpb.Name = "\68\97\110\99\101\50\65\110\105\109\97\116\105\111\110" tgkpb.AnimationId = "\114\98\120\97\115\115\101\116\105\100\58\47\47\51\49\56\57\55\55\54\53\52\54" local _tgkp = game:GetService("\80\108\97\121\101\114\115").LocalPlayer.Character.Humanoid:LoadAnimation(tgkpb) local d_tgkp = Instance.new("\65\110\105\109\97\116\105\111\110", ersi) d_tgkp.Name = "\71\114\101\101\116\65\110\105\109\97\116\105\111\110" d_tgkp.AnimationId = "\114\98\120\97\115\115\101\116\105\100\58\47\47\51\49\56\57\55\55\55\55\57\53" local md_tgk = game:GetService("\80\108\97\121\101\114\115").LocalPlayer.Character.Humanoid:LoadAnimation(d_tgkp) local cmd_tg = Instance.new("\65\110\105\109\97\116\105\111\110", ersi) cmd_tg.Name = "\80\114\97\121\105\110\103\65\110\105\109\97\116\105\111\110" cmd_tg.AnimationId = "\114\98\120\97\115\115\101\116\105\100\58\47\47\51\52\56\55\55\49\57\53\48\48" local ncmd_t = game:GetService("\80\108\97\121\101\114\115").LocalPlayer.Character.Humanoid:LoadAnimation(cmd_tg) for i,v in pairs(holer:GetChildren()) do if v.Name == "\84\101\120\116\66\117\116\116\111\110" then if v.Text == "\76\101\97\110" then v.Name = "\76\101\97\110\66\117\116\116\111\110" end end end for i,v in pairs(holer:GetChildren()) do if v.Name == "\84\101\120\116\66\117\116\116\111\110" then if v.Text == "\76\97\121" then v.Name = "\76\97\121\66\117\116\116\111\110" end end end for i,v in pairs(holer:GetChildren()) do if v.Name == "\84\101\120\116\66\117\116\116\111\110" then if v.Text == "\68\97\110\99\101\49" then v.Name = "\68\97\110\99\101\49\66\117\116\116\111\110" end end end for i,v in pairs(holer:GetChildren()) do if v.Name == "\84\101\120\116\66\117\116\116\111\110" then if v.Text == "\68\97\110\99\101\50" then v.Name = "\68\97\110\99\101\50\66\117\116\116\111\110" end end end for i,v in pairs(holer:GetChildren()) do if v.Name == "\84\101\120\116\66\117\116\116\111\110" then if v.Text == "\71\114\101\101\116" then v.Name = "\71\114\101\101\116\66\117\116\116\111\110" end end end for i,v in pairs(holer:GetChildren()) do if v.Name == "\84\101\120\116\66\117\116\116\111\110" then if v.Text == "\80\114\97\121\105\110\103" then v.Name = "\80\114\97\121\105\110\103\66\117\116\116\111\110" end end end function s() pbfa:s() faqho:s() gkpbfa:s() _tgkp:s() md_tgk:s() ncmd_t:s() end local incmd_t = holer.LeanButton local sincmd_ = holer.LayButton local rsincmd = holer.Dance1Button local ersinc = holer.Dance2Button local lers = holer.GreetButton local ole = holer.PrayingButton oler.MouseButton1Click:Connect(function() if holer.Visible == false then holer.Visible = true qho.Visible = true end end) qho.MouseButton1Click:Connect(function() if holer.Visible == true then holer.Visible = false qho.Visible = false end end) incmd_t.MouseButton1Click:Connect(function() s() faqho:Play() end) sincmd_.MouseButton1Click:Connect(function() s() pbfa:Play() end) rsincmd.MouseButton1Click:Connect(function() s() gkpbfa:Play() end) ersinc.MouseButton1Click:Connect(function() s() _tgkp:Play() end) lers.MouseButton1Click:Connect(function() s() md_tgk:Play() end) ole.MouseButton1Click:Connect(function() s() ncmd_t:Play() end) end) end) rsinc:Button("\70\97\107\101\32\77\111\110\97\99\111\32\40\77\41", function() c = game:GetService('Players').LocalPlayer down = true function r(md_t) down = true while down do if not down then break end local hole = c.Character hole.HumanoidRootPart.Velocity = hole.HumanoidRootPart.CFrame.lookVector * 190 wait() end end function l(md_t) down = false end function h(md_t) md_t.KeyDown:connect(function(kp) if kp:lower()=="\109"then r(md_t)end end) md_t.KeyUp:connect(function(kp) if kp:lower()=="\109"then l(md_t)end end) end h(game.Players.LocalPlayer:GetMouse()) end) for i,v in pairs(game:GetService("\87\111\114\107\115\112\97\99\101").Ignored.Shop:GetChildren()) do local q = AutoBuyPage.AddButton(v.Name, function() local aqho = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame local fa = v:FindFirstChild("\72\101\97\100") if fa then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = fa.CFrame local bfaq = v:FindFirstChild("\67\108\105\99\107\68\101\116\101\99\116\111\114") if bfaq then wait(0.75) fireclickdetector(bfaq) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = aqho end end end) end rsinc:Button("\84\114\121\32\72\97\114\100\32\65\110\105\109\97\116\105\111\110", function() local pbf = game.Players.LocalPlayer.Character.Animate pbf.idle.Animation1.AnimationId = "\104\116\116\112\58\47\47\119\119\119\46\114\111\98\108\111\120\46\99\111\109\47\97\115\115\101\116\47\63\105\100\61\55\56\50\56\52\49\52\57\56" pbf.idle.Animation2.AnimationId = "\104\116\116\112\58\47\47\119\119\119\46\114\111\98\108\111\120\46\99\111\109\47\97\115\115\101\116\47\63\105\100\61\55\56\50\56\52\53\55\51\54" pbf.walk.WalkAnim.AnimationId = "\104\116\116\112\58\47\47\119\119\119\46\114\111\98\108\111\120\46\99\111\109\47\97\115\115\101\116\47\63\105\100\61\54\49\54\49\54\56\48\51\50" pbf.run.RunAnim.AnimationId = "\104\116\116\112\58\47\47\119\119\119\46\114\111\98\108\111\120\46\99\111\109\47\97\115\115\101\116\47\63\105\100\61\54\49\54\49\54\51\54\56\50" pbf.jump.JumpAnim.AnimationId = "\104\116\116\112\58\47\47\119\119\119\46\114\111\98\108\111\120\46\99\111\109\47\97\115\115\101\116\47\63\105\100\61\55\48\55\56\53\51\54\57\52" pbf.climb.ClimbAnim.AnimationId = "\104\116\116\112\58\47\47\119\119\119\46\114\111\98\108\111\120\46\99\111\109\47\97\115\115\101\116\47\63\105\100\61\54\49\54\48\56\54\48\51\57" pbf.fall.FallAnim.AnimationId = "\104\116\116\112\58\47\47\119\119\119\46\114\111\98\108\111\120\46\99\111\109\47\97\115\115\101\116\47\63\105\100\61\55\48\55\56\50\57\55\49\54" game.Players.LocalPlayer.Character.Humanoid.Jump = true end) local kpb = _t:Channel("\84\101\108\101\112\111\114\116\115") kpb:Button("\65\100\109\105\110\32\66\97\115\101", function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-797.15, -39.6189, -887.957) end) kpb:Button("\70\111\111\100\32\83\104\111\112\32\91\66\97\110\107\93", function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-335.141, 23.7129, -298.029) end) kpb:Button("\70\111\111\100\32\83\104\111\112\32\91\85\112\104\105\108\108\93", function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(298.477, 49.3129, -615.231) end) kpb:Button("\70\111\111\100\32\83\104\111\112\32\91\84\97\99\111\93", function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(583.96, 51.0917, -479.596) end) kpb:Button("\71\117\110\32\83\104\111\112\32\91\85\112\104\105\108\108\93", function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(481.925, 48.1008, -621.23) end) kpb:Button("\71\117\110\32\83\104\111\112\32\91\65\114\109\111\114\93", function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-580.27, 8.34504, -734.832) end) kpb:Button("\66\97\110\107", function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-438.689, 39.0127, -284.731) end) kpb:Button("\67\97\115\105\110\111", function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-904.457, 24.7803, -156.994) end) 
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
+
+local win = DiscordLib:Window("BirthHub V2 (DaHood)")
+
+local serv = win:Server("BHubV2", "")
+
+local btns = serv:Channel("Main")
+
+btns:Button("Chat Logs", function()
+DiscordLib:Notification("Notification", "Chat Logs executed!", "Okay!")
+local LP = game.Players.LocalPlayer
+LP.PlayerGui.Chat.Frame.ChatChannelParentFrame.Visible = true
+LP.PlayerGui.Chat.Frame.ChatBarParentFrame.Position = LP.PlayerGui.Chat.Frame.ChatChannelParentFrame.Position + UDim2.new(UDim.new(),LP.PlayerGui.Chat.Frame.ChatChannelParentFrame.Size.Y)
+end)
+
+btns:Button("Hide Name", function()
+    if game.Players.LocalPlayer.Character:FindFirstChild("In-gameMask") then
+        game.Players.LocalPlayer.Character:FindFirstChild("In-gameMask"):FindFirstChildWhichIsA("Model"):Destroy()
+        game.Players.LocalPlayer.Character:FindFirstChild("In-gameMask"):FindFirstChild('Handle'):Destroy()
+    end
+end)
+
+btns:Button("Fly (X)", function()
+DiscordLib:Notification("Notification", "Fly Mode Executed", "Okay!")
+    local plr = game.Players.LocalPlayer
+    local mouse = plr:GetMouse()
+
+    localplayer = plr
+
+    if workspace:FindFirstChild("Core") then
+        workspace.Core:Destroy()
+    end
+
+    local Core = Instance.new("Part")
+    Core.Name = "Core"
+    Core.Size = Vector3.new(0.05, 0.05, 0.05)
+
+    spawn(function()
+        Core.Parent = workspace
+        local Weld = Instance.new("Weld", Core)
+        Weld.Part0 = Core
+        Weld.Part1 = localplayer.Character.LowerTorso
+        Weld.C0 = CFrame.new(0, 0, 0)
+    end)
+
+    workspace:WaitForChild("Core")
+
+    local torso = workspace.Core
+    flying = true
+    local speed=7.5
+    local keys={a=false,d=false,w=false,s=false}
+    local e1
+    local e2
+    local function start()
+        local pos = Instance.new("BodyPosition",torso)
+        local gyro = Instance.new("BodyGyro",torso)
+        pos.Name="EPIXPOS"
+        pos.maxForce = Vector3.new(math.huge, math.huge, math.huge)
+        pos.position = torso.Position
+        gyro.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+        gyro.cframe = torso.CFrame
+        repeat
+            wait()
+            localplayer.Character.Humanoid.PlatformStand=true
+            local new=gyro.cframe - gyro.cframe.p + pos.position
+            if not keys.w and not keys.s and not keys.a and not keys.d then
+                speed=7.5
+            end
+            if keys.w then
+                new = new + workspace.CurrentCamera.CoordinateFrame.lookVector * speed
+                speed=speed+0
+            end
+            if keys.s then
+                new = new - workspace.CurrentCamera.CoordinateFrame.lookVector * speed
+                speed=speed+0
+            end
+            if keys.d then
+                new = new * CFrame.new(speed,0,0)
+                speed=speed+0
+            end
+            if keys.a then
+                new = new * CFrame.new(-speed,0,0)
+                speed=speed+0
+            end
+            if speed>3.2 then
+                speed=7.5
+            end
+            pos.position=new.p
+            if keys.w then
+                gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(-math.rad(speed*0),0,0)
+            elseif keys.s then
+                gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(math.rad(speed*0),0,0)
+            else
+                gyro.cframe = workspace.CurrentCamera.CoordinateFrame
+            end
+        until flying == false
+        if gyro then gyro:Destroy() end
+        if pos then pos:Destroy() end
+        flying=false
+        localplayer.Character.Humanoid.PlatformStand=false
+        speed=7.5
+    end
+    e1=mouse.KeyDown:connect(function(key)
+        if not torso or not torso.Parent then flying=false e1:disconnect() e2:disconnect() return end
+        if key=="w" then
+            keys.w=true
+        elseif key=="s" then
+            keys.s=true
+        elseif key=="a" then
+            keys.a=true
+        elseif key=="d" then
+            keys.d=true
+        elseif key=="x" then
+            if flying==true then
+                flying=false
+            else
+                flying=true
+                start()
+            end
+        end
+    end)
+    e2=mouse.KeyUp:connect(function(key)
+        if key=="w" then
+            keys.w=false
+        elseif key=="s" then
+            keys.s=false
+        elseif key=="a" then
+            keys.a=false
+        elseif key=="d" then
+            keys.d=false
+        end
+    end)
+    start() 		
+end)
+
+local tgls = serv:Channel("Toggles")
+
+tgls:Toggle("NoClip",false, function(t)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/LegoHacker1337/legohacks/main/PhysicsServiceOnClient.lua"))()
+    setfflag("HumanoidParallelRemoveNoPhysics", "False")
+    setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+    if t == true then
+        game:GetService('RunService'):BindToRenderStep("crash", 0 , function()
+            game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+        end)
+    elseif t == false then
+        game:GetService('RunService'):UnbindFromRenderStep("crash")
+    end
+end)
+
+tgls:Toggle("Fist Reach",false, function(e)
+    if e == true then
+        game:GetService('RunService'):BindToRenderStep("Reach", 0 , function()
+            local success, err = pcall(function()
+                if game.Players.LocalPlayer.Character.BodyEffects.Attacking.Value == true then
+                    for i,v in pairs(game:GetService('Players'):GetChildren()) do
+                        if (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.LeftHand.Position).Magnitude <= 50 then
+                            if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") then
+                                if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool"):FindFirstChild('Handle') then
+                                    firetouchinterest(game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Handle, v.Character.UpperTorso, 0)
+                                else
+                                    firetouchinterest(game.Players.LocalPlayer.Character['RightHand'], v.Character.UpperTorso, 0)
+                                    firetouchinterest(game.Players.LocalPlayer.Character['LeftHand'], v.Character.UpperTorso, 0)
+                                    firetouchinterest(game.Players.LocalPlayer.Character['RightFoot'], v.Character.UpperTorso, 0)
+                                    firetouchinterest(game.Players.LocalPlayer.Character['LeftFoot'], v.Character.UpperTorso, 0)
+                                    firetouchinterest(game.Players.LocalPlayer.Character['RightLowerLeg'], v.Character.UpperTorso, 0)
+                                    firetouchinterest(game.Players.LocalPlayer.Character['LeftLowerLeg'], v.Character.UpperTorso, 0)
+                                end
+                            end
+                        end
+                    end
+                end
+            end)
+        end)
+    elseif e == false then
+        game:GetService('RunService'):UnbindFromRenderStep("Reach")
+    end
+end)
+
+tgls:Toggle("Auto Stomp",false, function(r)
+    if r == true then
+        game:GetService('RunService'):BindToRenderStep("Auto-Stomp", 0 , function()
+            game:GetService("ReplicatedStorage").MainEvent:FireServer("Stomp")
+        end)
+    elseif r == false then
+        game:GetService('RunService'):UnbindFromRenderStep("Auto-Stomp")
+    end
+end)
+
+tgls:Toggle("Anti Stomp",false, function(x)
+    if x == true then
+        game:GetService('RunService'):BindToRenderStep("Anti-Stomp", 0 , function()
+            if game.Players.LocalPlayer.Character.Humanoid.Health <= 5 then
+                for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v:IsA('MeshPart') or v:IsA('Part') then
+                        v:Destroy()
+                    end
+                end
+                for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v:IsA('Accessory') then
+                        v.Handle:Destroy()
+                    end
+                end
+            end
+        end)
+    elseif x == false then
+        game:GetService('RunService'):UnbindFromRenderStep("Anti-Stomp")
+    end
+end)
+
+tgls:Toggle("Anti Stomp",false, function(gh)
+    if gh == true then
+        game:GetService('RunService'):BindToRenderStep("Anti-Slow", 0 , function()
+            if game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoWalkSpeed") then game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoWalkSpeed"):Destroy() end
+            if game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("ReduceWalk") then game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("ReduceWalk"):Destroy() end
+            if game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoJumping") then game.Players.LocalPlayer.Character.BodyEffects.Movement:FindFirstChild("NoJumping"):Destroy() end
+            if game.Players.LocalPlayer.Character.BodyEffects.Reload.Value == true then game.Players.LocalPlayer.Character.BodyEffects.Reload.Value = false end
+        end)
+    elseif gh == false then
+        game:GetService('RunService'):UnbindFromRenderStep("Anti-Slow")
+    end
+end)
+
+
+
+
+-- Aimlock
+
+local asad = serv:Channel("Aimlock")
+
+asad:Button("Aimlock", function()
+    DiscordLib:Notification("Notification", "Aimlock Executed", "Okay!")
+
+    _G.KEY = "q"
+    _G.PART = "LowerTorso"
+    _G.PRED = 0.037
+    _G.Frame = Vector3.new(0,0.53,0)
+    _G.AIR = -0.5
+    _G.SHIT = 0.1
+
+
+    local CC = game:GetService "Workspace".CurrentCamera
+    local Plr
+    local enabled = false
+    local accomidationfactor = nil
+    local mouse = game.Players.LocalPlayer:GetMouse()
+    local placemarker = Instance.new("Part", game.Workspace)
+    local guimain = Instance.new("Folder", game.CoreGui)
+
+    getgenv().makemarker = function(Parent, Adornee, Color, Size, Size2)
+        local e = Instance.new("BillboardGui", Parent)
+        e.Name = "PP"
+        e.Adornee = Adornee
+        e.Size = UDim2.new(Size, Size2, Size, Size2)
+        e.AlwaysOnTop = true
+        local a = Instance.new("Frame", e)
+        a.Size = UDim2.new(4, 0, 4, 0)
+        a.BackgroundTransparency = 0.1
+        a.BackgroundColor3 = Color
+        local g = Instance.new("UICorner", a)
+        g.CornerRadius = UDim.new(50, 50)
+        return (e)
+    end
+
+    local data = game.Players:GetPlayers()
+    function noob(player)
+        local character
+        repeat
+            wait()
+        until player.Character
+        local handler = makemarker(guimain, player.Character:WaitForChild(_G.PART), Color3.fromRGB(255, 255, 255), 0.0, 0)
+        handler.Name = player.Name
+        player.CharacterAdded:connect(
+            function(Char)
+                handler.Adornee = Char:WaitForChild(_G.PART)
+            end
+        )
+
+        local TextLabel = Instance.new("TextLabel", handler)
+        TextLabel.BackgroundTransparency = 1
+        TextLabel.Position = UDim2.new(0, 0, 0, -50)
+        TextLabel.Size = UDim2.new(0, 100, 0, 100)
+        TextLabel.Font = Enum.Font.SourceSansSemibold
+        TextLabel.TextSize = 14
+        TextLabel.TextColor3 = Color3.new(1, 1, 1)
+        TextLabel.TextStrokeTransparency = 0
+        TextLabel.TextYAlignment = Enum.TextYAlignment.Bottom
+        TextLabel.Text = "Name: " .. player.Name
+        TextLabel.ZIndex = 10
+
+        spawn(
+            function()
+                while wait() do
+                    if player.Character then
+                        --TextLabel.Text = player.Name.." | Bounty: "..tostring(player:WaitForChild("leaderstats").Wanted.Value).." | "..tostring(math.floor(player.Character:WaitForChild("Humanoid").Health))
+                    end
+                end
+            end
+        )
+    end
+
+    for i = 1, #data do
+        if data[i] ~= game.Players.LocalPlayer then
+            noob(data[i])
+        end
+    end
+
+    game.Players.PlayerAdded:connect(
+        function(Player)
+            noob(Player)
+        end
+    )
+
+    game.Players.PlayerRemoving:Connect(
+        function(player)
+            guimain[player.Name]:Destroy()
+        end
+    )
+
+    spawn(
+        function()
+            placemarker.Anchored = true
+            placemarker.CanCollide = false
+            placemarker.Size = Vector3.new(0.1, 0.1, 0.1)
+            placemarker.Transparency = _G.SHIT
+            makemarker(placemarker, placemarker, Color3.fromRGB(255, 255, 255), 0.20, 0)
+        end
+    )
+
+    mouse.KeyDown:Connect(
+        function(k)
+            if k ~= _G.KEY then
+                return
+            end
+            if enabled then
+                -- guimain[Plr.Name].Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                enabled = false
+                TextLabel.TextColor3 = Color3.fromRGB(255, 20, 75)
+                TextLabel.Text = "------"
+            else
+                --guimain[Plr.Name].Frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+                enabled = true
+                Plr = getClosestPlayerToCursor()
+                TextLabel.TextColor3 = Color3.fromRGB(12, 255, 0)
+                TextLabel.Text = Plr.Character.Humanoid.DisplayName
+            end
+        end)
+
+    function getClosestPlayerToCursor()
+        local closestPlayer
+        local shortestDistance = math.huge
+
+        for i, v in pairs(game.Players:GetPlayers()) do
+            if
+                v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("Humanoid") and
+                v.Character.Humanoid.Health ~= 0 and
+                v.Character:FindFirstChild(_G.PART)
+            then
+                local pos = CC:WorldToViewportPoint(v.Character.PrimaryPart.Position)
+                local magnitude = (Vector2.new(pos.X, pos.Y) - Vector2.new(mouse.X, mouse.Y)).magnitude
+                if magnitude < shortestDistance then
+                    closestPlayer = v
+                    shortestDistance = magnitude
+                end
+            end
+        end
+        return closestPlayer
+    end
+
+    game:GetService "RunService".Stepped:connect(
+        function()
+            if enabled and Plr.Character and Plr.Character:FindFirstChild(_G.PART) then
+                placemarker.CFrame =
+                    CFrame.new(Plr.Character[_G.PART].Position + _G.Frame + (Plr.Character[_G.PART].Velocity * accomidationfactor))
+            else
+                placemarker.CFrame = CFrame.new(0, 9999, 0)
+            end
+        end
+    )
+
+    local mt = getrawmetatable(game)
+    local old = mt.__namecall
+    setreadonly(mt, false)
+    mt.__namecall =
+        newcclosure(
+            function(...)
+                local args = {...}
+                if enabled and getnamecallmethod() == "FireServer" and args[2] == "UpdateMousePos" then
+                args[3] = Plr.Character[_G.PART].Position+ _G.Frame + (Plr.Character[_G.PART].Velocity * accomidationfactor)
+                return old(unpack(args))
+            end
+                return old(...)
+            end
+        )
+
+    game.Players.LocalPlayer.Chatted:Connect(
+        function(Chat)
+            if Chat == "print" then
+                print(accomidationfactor)
+            end
+        end
+    )
+
+    game.Players.LocalPlayer.Chatted:Connect(
+        function(Chat)
+            if Chat == "Code:1029" then
+
+                _G.KEY = nil
+                _G.AIR = nil
+                _G.PART = nil
+                _G.PRED = nil
+                TextLabel.Visible = false
+
+
+            end
+        end
+    )
+
+    game.Players.LocalPlayer.Chatted:Connect(
+        function(Chat)
+            if Chat == "Code:1030" then
+
+                _G.KEY = "q"
+                _G.PART = "UpperTorso"
+                _G.PRED = 0.037
+                _G.Frame = Vector3.new(0,0.0,0)
+                _G.AIR = -0.5
+                _G.SHIT = 1
+
+
+            end
+        end
+    )
+
+
+
+    game.Players.LocalPlayer.Chatted:Connect(
+        function(Chat)
+            if Chat == "P+" then
+
+
+                _G.PRED = _G.PRED+0.001
+
+
+
+            end
+        end
+    )
+
+    game.Players.LocalPlayer.Chatted:Connect(
+        function(Chat)
+            if Chat == "P-" then
+
+                _G.PRED = _G.PRED-0.001
+
+
+
+            end
+        end
+    )
+
+
+--[[
+while wait() do
+    local ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
+    local Value = tostring(ping)
+    local pingValue = Value:split(" ")
+    local PingNumber = pingValue[1]
+    
+    accomidationfactor = PingNumber / 1000 + _G.PRED
+     if getClosestPlayerToCursor().Character.Humanoid.Jump == true and AimlockTarget.Character.Humanoid.FloorMaterial == Enum.Material.Air then
+        _G.PART = "RightFood"
+        accomidationfactor = _G.AIR
+    else
+        getClosestPlayerToCursor().Character:WaitForChild("Humanoid").StateChanged:Connect(function(old,new)
+            if new == Enum.HumanoidStateType.Freefall then
+                _G.PART = "RightFood"
+                accomidationfactor = _G.AIR
+            else
+                _G.PART = "UpperTorso"
+                accomidationfactor = PingNumber / 1000 + _G.PRED
+            end
+        end)
+    end
+end
+
+]]
+
+    while wait() do
+        local ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
+        local Value = tostring(ping)
+        local pingValue = Value:split(" ")
+        local PingNumber = pingValue[1]
+
+        accomidationfactor = PingNumber / 1000 + _G.PRED
+    end
+end)
+
+-- others
+
+local asad = serv:Channel("Others")
+
+asad:Button("Animation Pack", function()
+    DiscordLib:Notification("Notification", "Animation Pack executed", "Okay!")
+    local Folder = Instance.new('Folder', game:GetService("Workspace"))
+    local AnimationPack = game:GetService("Players").LocalPlayer.PlayerGui.MainScreenGui.AnimationPack
+    local ScrollingFrame = AnimationPack.ScrollingFrame
+    local CloseButton = AnimationPack.CloseButton
+
+    AnimationPack.Visible = true
+
+    local LeanAnimation = Instance.new("Animation", Folder)
+    LeanAnimation.Name = "LeanAnimation"
+    LeanAnimation.AnimationId = "rbxassetid://3152375249"
+    local Lean = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(LeanAnimation)
+
+    local LayAnimation = Instance.new("Animation", Folder)
+    LayAnimation.Name = "LayAnimation"
+    LayAnimation.AnimationId = "rbxassetid://3152378852"
+    local Lay = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(LayAnimation)
+
+    local Dance1Animation = Instance.new("Animation", Folder)
+    Dance1Animation.Name = "Dance1Animation"
+    Dance1Animation.AnimationId = "rbxassetid://3189773368"
+    local Dance1 = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Dance1Animation)
+
+    local Dance2Animation = Instance.new("Animation", Folder)
+    Dance2Animation.Name = "Dance2Animation"
+    Dance2Animation.AnimationId = "rbxassetid://3189776546"
+    local Dance2 = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Dance2Animation)
+
+    local GreetAnimation = Instance.new("Animation", Folder)
+    GreetAnimation.Name = "GreetAnimation"
+    GreetAnimation.AnimationId = "rbxassetid://3189777795"
+    local Greet = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(GreetAnimation)
+
+    local PrayingAnimation = Instance.new("Animation", Folder)
+    PrayingAnimation.Name = "PrayingAnimation"
+    PrayingAnimation.AnimationId = "rbxassetid://3487719500"
+    local Praying = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(PrayingAnimation)
+
+    for i,v in pairs(ScrollingFrame:GetChildren()) do
+        if v.Name == "TextButton" then
+            if v.Text == "Lean" then
+                v.Name = "LeanButton"
+            end
+        end
+    end
+
+    for i,v in pairs(ScrollingFrame:GetChildren()) do
+        if v.Name == "TextButton" then
+            if v.Text == "Lay" then
+                v.Name = "LayButton"
+            end
+        end
+    end
+
+    for i,v in pairs(ScrollingFrame:GetChildren()) do
+        if v.Name == "TextButton" then
+            if v.Text == "Dance1" then
+                v.Name = "Dance1Button"
+            end
+        end
+    end
+
+    for i,v in pairs(ScrollingFrame:GetChildren()) do
+        if v.Name == "TextButton" then
+            if v.Text == "Dance2" then
+                v.Name = "Dance2Button"
+            end
+        end
+    end
+
+    for i,v in pairs(ScrollingFrame:GetChildren()) do
+        if v.Name == "TextButton" then
+            if v.Text == "Greet" then
+                v.Name = "GreetButton"
+            end
+        end
+    end
+
+    for i,v in pairs(ScrollingFrame:GetChildren()) do
+        if v.Name == "TextButton" then
+            if v.Text == "Praying" then
+                v.Name = "PrayingButton"
+            end
+        end
+    end
+
+    function Stop()
+        Lay:Stop()
+        Lean:Stop()
+        Dance1:Stop()
+        Dance2:Stop()
+        Greet:Stop()
+        Praying:Stop()
+    end
+
+    local LeanTextButton = ScrollingFrame.LeanButton
+    local LayTextButton = ScrollingFrame.LayButton
+    local Dance1TextButton = ScrollingFrame.Dance1Button
+    local Dance2TextButton = ScrollingFrame.Dance2Button
+    local GreetTextButton = ScrollingFrame.GreetButton
+    local PrayingTextButton = ScrollingFrame.PrayingButton
+
+    AnimationPack.MouseButton1Click:Connect(function()
+        if ScrollingFrame.Visible == false then
+            ScrollingFrame.Visible = true
+            CloseButton.Visible = true
+        end
+    end)
+    CloseButton.MouseButton1Click:Connect(function()
+        if ScrollingFrame.Visible == true then
+            ScrollingFrame.Visible = false
+            CloseButton.Visible = false
+        end
+    end)
+    LeanTextButton.MouseButton1Click:Connect(function()
+        Stop()
+        Lean:Play()
+    end)
+    LayTextButton.MouseButton1Click:Connect(function()
+        Stop()
+        Lay:Play()
+    end)
+    Dance1TextButton.MouseButton1Click:Connect(function()
+        Stop()
+        Dance1:Play()
+    end)
+    Dance2TextButton.MouseButton1Click:Connect(function()
+        Stop()
+        Dance2:Play()
+    end)
+    GreetTextButton.MouseButton1Click:Connect(function()
+        Stop()
+        Greet:Play()
+    end)
+    PrayingTextButton.MouseButton1Click:Connect(function()
+        Stop()
+        Praying:Play()
+    end)
+
+    game:GetService("Players").LocalPlayer.Character.Humanoid.Running:Connect(function()
+        Stop()
+    end)
+    game:GetService("Players").LocalPlayer.Character.Humanoid.Died:Connect(function()
+        Stop()
+        repeat
+            wait()
+        until game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 100
+        wait(1)
+        local AnimationPack = game:GetService("Players").LocalPlayer.PlayerGui.MainScreenGui.AnimationPack
+        local ScrollingFrame = AnimationPack.ScrollingFrame
+        local CloseButton = AnimationPack.CloseButton
+
+        AnimationPack.Visible = true
+
+        local LeanAnimation = Instance.new("Animation", Folder)
+        LeanAnimation.Name = "LeanAnimation"
+        LeanAnimation.AnimationId = "rbxassetid://3152375249"
+        local Lean = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(LeanAnimation)
+
+        local LayAnimation = Instance.new("Animation", Folder)
+        LayAnimation.Name = "LayAnimation"
+        LayAnimation.AnimationId = "rbxassetid://3152378852"
+        local Lay = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(LayAnimation)
+
+        local Dance1Animation = Instance.new("Animation", Folder)
+        Dance1Animation.Name = "Dance1Animation"
+        Dance1Animation.AnimationId = "rbxassetid://3189773368"
+        local Dance1 = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Dance1Animation)
+
+        local Dance2Animation = Instance.new("Animation", Folder)
+        Dance2Animation.Name = "Dance2Animation"
+        Dance2Animation.AnimationId = "rbxassetid://3189776546"
+        local Dance2 = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Dance2Animation)
+
+        local GreetAnimation = Instance.new("Animation", Folder)
+        GreetAnimation.Name = "GreetAnimation"
+        GreetAnimation.AnimationId = "rbxassetid://3189777795"
+        local Greet = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(GreetAnimation)
+
+        local PrayingAnimation = Instance.new("Animation", Folder)
+        PrayingAnimation.Name = "PrayingAnimation"
+        PrayingAnimation.AnimationId = "rbxassetid://3487719500"
+        local Praying = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(PrayingAnimation)
+
+        for i,v in pairs(ScrollingFrame:GetChildren()) do
+            if v.Name == "TextButton" then
+                if v.Text == "Lean" then
+                    v.Name = "LeanButton"
+                end
+            end
+        end
+
+        for i,v in pairs(ScrollingFrame:GetChildren()) do
+            if v.Name == "TextButton" then
+                if v.Text == "Lay" then
+                    v.Name = "LayButton"
+                end
+            end
+        end
+
+        for i,v in pairs(ScrollingFrame:GetChildren()) do
+            if v.Name == "TextButton" then
+                if v.Text == "Dance1" then
+                    v.Name = "Dance1Button"
+                end
+            end
+        end
+
+        for i,v in pairs(ScrollingFrame:GetChildren()) do
+            if v.Name == "TextButton" then
+                if v.Text == "Dance2" then
+                    v.Name = "Dance2Button"
+                end
+            end
+        end
+
+        for i,v in pairs(ScrollingFrame:GetChildren()) do
+            if v.Name == "TextButton" then
+                if v.Text == "Greet" then
+                    v.Name = "GreetButton"
+                end
+            end
+        end
+
+        for i,v in pairs(ScrollingFrame:GetChildren()) do
+            if v.Name == "TextButton" then
+                if v.Text == "Praying" then
+                    v.Name = "PrayingButton"
+                end
+            end
+        end
+
+        function Stop()
+            Lay:Stop()
+            Lean:Stop()
+            Dance1:Stop()
+            Dance2:Stop()
+            Greet:Stop()
+            Praying:Stop()
+        end
+
+        local LeanTextButton = ScrollingFrame.LeanButton
+        local LayTextButton = ScrollingFrame.LayButton
+        local Dance1TextButton = ScrollingFrame.Dance1Button
+        local Dance2TextButton = ScrollingFrame.Dance2Button
+        local GreetTextButton = ScrollingFrame.GreetButton
+        local PrayingTextButton = ScrollingFrame.PrayingButton
+
+        AnimationPack.MouseButton1Click:Connect(function()
+            if ScrollingFrame.Visible == false then
+                ScrollingFrame.Visible = true
+                CloseButton.Visible = true
+            end
+        end)
+        CloseButton.MouseButton1Click:Connect(function()
+            if ScrollingFrame.Visible == true then
+                ScrollingFrame.Visible = false
+                CloseButton.Visible = false
+            end
+        end)
+        LeanTextButton.MouseButton1Click:Connect(function()
+            Stop()
+            Lean:Play()
+        end)
+        LayTextButton.MouseButton1Click:Connect(function()
+            Stop()
+            Lay:Play()
+        end)
+        Dance1TextButton.MouseButton1Click:Connect(function()
+            Stop()
+            Dance1:Play()
+        end)
+        Dance2TextButton.MouseButton1Click:Connect(function()
+            Stop()
+            Dance2:Play()
+        end)
+        GreetTextButton.MouseButton1Click:Connect(function()
+            Stop()
+            Greet:Play()
+        end)
+        PrayingTextButton.MouseButton1Click:Connect(function()
+            Stop()
+            Praying:Play()
+        end)
+    end)
+end)
+
+asad:Button("Try Hard Animation", function()
+    local Animate = game.Players.LocalPlayer.Character.Animate
+    Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=782841498"
+    Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=782845736"
+    Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616168032"
+    Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616163682"
+    Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=707853694"
+    Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616086039"
+    Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=707829716"
+    game.Players.LocalPlayer.Character.Humanoid.Jump = true
+end)
+
+-- teleports
+local sad = serv:Channel("Teleports")
+
+sad:Button("Admin Base", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-797.15, -39.6189, -887.957)
+end)
+
+sad:Button("Food Shop [Bank]", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-335.141, 23.7129, -298.029)
+end)
+
+sad:Button("Food Shop [Uphill]", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(298.477, 49.3129, -615.231)
+end)
+
+sad:Button("Food Shop [Taco]", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(583.96, 51.0917, -479.596)
+end)
+
+sad:Button("Gun Shop [Uphill]", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(481.925, 48.1008, -621.23)
+end)
+
+sad:Button("Gun Shop [Armor]", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-580.27, 8.34504, -734.832)
+end)
+
+sad:Button("Bank", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-438.689, 39.0127, -284.731)
+end)
+
+sad:Button("Casino", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-904.457, 24.7803, -156.994)
+end)
+
+-- credits
+
+local lbls = serv:Channel("Credits")
+
+lbls:Label("Birthday -  Hub Making")
+
+lbls:Label("Curry - Scripting")
+
+lbls:Label("Dimag - Scripts")
+
+-- Settings
+local stng = serv:Channel("Settings")
+
+stng:Button("Copy Discord", function()
+    setclipboard(discord.gg/FkCJkuXzFy)
+end)
+
+
+serv:Channel("by Birthday#7003")
+
+win:Server("Main", "http://www.roblox.com/asset/?id=7612668541")
